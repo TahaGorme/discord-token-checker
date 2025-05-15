@@ -29,6 +29,8 @@ Discord Token Checker is a powerful Discord token checker that verifies tokens a
 ## 📸 Screenshots
 ![image](https://github.com/user-attachments/assets/3c919933-17aa-4a95-9318-8dd31ce9092d)
 ![image](https://github.com/user-attachments/assets/d9036565-df5a-4259-87c5-73415430f53c)
+![tokenchecker](https://github.com/user-attachments/assets/eecb27e0-c665-4c87-b304-363e44b312bc)
+
 
 ## 📥 Installation
 

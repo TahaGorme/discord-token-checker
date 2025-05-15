@@ -2,12 +2,6 @@
 
 Discord Token Checker is a powerful Discord token checker that verifies tokens and extracts account information. It validates tokens while collecting data on email/phone verification status, server memberships, Nitro subscriptions, billing details, and creation dates. Features include both sequential and turbo (parallel) processing modes, proxy support with auto-rotation, categorized results in organized output files, and a user-friendly interface with color-coded output and progress tracking.
 
-## 📸 Screenshots
-![image](https://github.com/user-attachments/assets/3c919933-17aa-4a95-9318-8dd31ce9092d)
-![image](https://github.com/user-attachments/assets/d9036565-df5a-4259-87c5-73415430f53c)
-![image](https://github.com/user-attachments/assets/ebd505c8-e915-483d-b461-e483cac21981)
-
-
 ## ✨ Features
 
 - **Token Validation**: Verifies Discord tokens and identifies valid, invalid, or locked accounts
@@ -31,6 +25,12 @@ Discord Token Checker is a powerful Discord token checker that verifies tokens a
 - **Colorized Output**: Clear, color-coded terminal output for easy status reading
 - **Duplicate Removal**: Automatic filtering of duplicate tokens and proxies
 - **Error Handling**: Graceful handling of connection issues and API errors
+
+## 📸 Screenshots
+![image](https://github.com/user-attachments/assets/3c919933-17aa-4a95-9318-8dd31ce9092d)
+![image](https://github.com/user-attachments/assets/d9036565-df5a-4259-87c5-73415430f53c)
+![image](https://github.com/user-attachments/assets/ebd505c8-e915-483d-b461-e483cac21981)
+
 
 ## 📥 Installation
 

@@ -3,14 +3,15 @@
 Discord Token Checker is a powerful Discord token checker that verifies tokens and extracts account information. It validates tokens while collecting data on email/phone verification status, server memberships, Nitro subscriptions, billing details, and creation dates. Features include both sequential and turbo (parallel) processing modes, proxy support with auto-rotation, categorized results in organized output files, and a user-friendly interface with color-coded output and progress tracking.
 
 ## ✨ Features
-
 - **Token Validation**: Verifies Discord tokens and identifies valid, invalid, or locked accounts
 - **User Information Retrieval**: Extracts username, email, phone verification status
 - **Account Details**: Retrieves creation date, server count, and verification status
 - **Nitro Detection**: Identifies accounts with Discord Nitro subscriptions
 - **Billing Status**: Detects accounts with payment methods attached
 - **MFA Detection**: Identifies accounts with 2FA enabled
-- **Proxy Support**: Full HTTP proxy support including authentication
+- **Cross-Platform**: Works on Windows, Linux, and macOS
+- **User-Friendly**: Easy to setup and use with simple interface
+- **Proxy Support**: Full HTTP proxy support with option for proxyless operation
 - **Rate Limit Handling**: Smart retry mechanisms for handling Discord rate limits
 - **Token Categorization**: Sorts tokens into multiple categories:
     - Email verified accounts
@@ -20,11 +21,14 @@ Discord Token Checker is a powerful Discord token checker that verifies tokens a
     - 2FA-enabled accounts
     - Accounts by creation year
     - Locked vs unlocked accounts
-- **Multithreaded Mode**: "Turbo mode" with configurable thread count for faster checking
+- **Turbo Mode**: Multithreaded checking for lightning-fast processing
 - **Detailed Logging**: Comprehensive output of account information
 - **Colorized Output**: Clear, color-coded terminal output for easy status reading
 - **Duplicate Removal**: Automatic filtering of duplicate tokens and proxies
 - **Error Handling**: Graceful handling of connection issues and API errors
+- **Low Resource Usage**: Optimized performance even when checking thousands of tokens
+- **Organized Results**: Automatically sorts findings into categorized files for easy access
+
 
 ## 📸 Screenshots
 ![image](https://github.com/user-attachments/assets/3c919933-17aa-4a95-9318-8dd31ce9092d)

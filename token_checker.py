@@ -13,7 +13,7 @@ import pyfiglet
 init(autoreset=True)
 
 session = tls_client.Session(
-    client_identifier="chrome_120", random_tls_extension_order=True
+    client_identifier="chrome120", random_tls_extension_order=True
 )
 
 ascii_art = pyfiglet.figlet_format("Slashy Checker", font="big")
@@ -156,6 +156,14 @@ def check_token(token: str, proxy: Optional[str] = None) -> Dict:
             len(guilds_response.json()) if guilds_response.status_code == 200 else 0
         )
 
+        # Fetch DM channels information
+        dm_channels_response = session.get(
+            "https://discord.com/api/v9/users/@me/channels", headers=headers, proxy=proxy
+        )
+        dm_channels_count = (
+            len(dm_channels_response.json()) if dm_channels_response.status_code == 200 else 0
+        )
+
         billing_response = session.get(
             "https://discord.com/api/v9/users/@me/billing/payment-sources",
             headers=headers,
@@ -170,7 +178,7 @@ def check_token(token: str, proxy: Optional[str] = None) -> Dict:
         user_id = token.split(".")[0]
         user_id = base64.urlsafe_b64decode(user_id + "==").decode("utf-8")
         try:
-            user_id = int(user_id)
+            user_id = int(user_id)  
             timestamp = (user_id >> 22) + 1420070400000
             creation_date = datetime.fromtimestamp(timestamp / 1000.0).strftime(
                 "%Y-%m-%d"
@@ -186,6 +194,7 @@ def check_token(token: str, proxy: Optional[str] = None) -> Dict:
             "verified": user_data.get("verified", False),
             "mfa_enabled": user_data.get("mfa_enabled", False),
             "guilds_count": guilds_count,
+            "dm_channels_count": dm_channels_count,
             "has_billing": has_billing,
             "creation_date": creation_date,
             "id": user_data.get("id", "Unknown"),
@@ -221,6 +230,7 @@ def save_detailed_token_info(token_info: Dict):
         f.write(f"Phone: {token_info['phone']}\n")
         f.write(f"Creation Date: {token_info['creation_date']}\n")
         f.write(f"Servers: {token_info['guilds_count']}\n")
+        f.write(f"DM Channels: {token_info['dm_channels_count']}\n")
         f.write(f"Verified: {token_info['verified']}\n")
         f.write(f"MFA Enabled: {token_info['mfa_enabled']}\n")
         f.write(f"Has Billing: {token_info['has_billing']}\n")
@@ -268,7 +278,7 @@ def process_token_result(
             if "-" in result["creation_date"]
             else result["creation_date"]
         )
-        details = f"{result['username']} | Servers: {result['guilds_count']} | {creation_year}{nitro_info}"
+        details = f"{result['username']} | Servers: {result['guilds_count']} | DMs: {result['dm_channels_count']} | {creation_year}{nitro_info}"
         if result["has_billing"]:
             details += " | Has Billing"
 
@@ -296,12 +306,8 @@ def process_token_result(
             f.write(f"{token}\n")
             return status, details, False
 
-
 def is_proxy_error(error):
-    return any(
-        x in str(error).lower()
-        for x in ["timeout", "refused", "connection", "proxy", "socket", "eoferror"]
-    )
+    return any(x in str(error).lower() for x in ["timeout", "refused", "connection", "proxy", "socket", "eoferror"])
 
 
 def check_token_with_proxy_fallback(
@@ -403,7 +409,7 @@ def check_tokens_parallel(tokens: List[str], use_proxies: bool, num_threads: int
     invalid_count = 0
     lock = threading.Lock()
     token_queue = Queue()
-    display_counter = 0
+    display_counter = 0  
 
     for token in tokens:
         token_queue.put(token)
@@ -436,7 +442,7 @@ def check_tokens_parallel(tokens: List[str], use_proxies: bool, num_threads: int
                     else:
                         invalid_count += 1
 
-                    display_counter += 1
+                    display_counter += 1 
                     print_token_status(
                         f"{display_counter}/{len(tokens)}", token_id, status, details
                     )
@@ -453,7 +459,7 @@ def check_tokens_parallel(tokens: List[str], use_proxies: bool, num_threads: int
                     with open("outputs/invalid_tokens.txt", "a") as f:
                         f.write(f"{token}\n")
 
-                    display_counter += 1
+                    display_counter += 1 
                     print_token_status(
                         f"{display_counter}/{len(tokens)}", token_id, status, details
                     )

@@ -1,4 +1,4 @@
-# Discord Token Checker
+# Discord Token Checker 
 
 Discord Token Checker is a powerful Discord token checker that verifies tokens and extracts account information. It validates tokens while collecting data on email/phone verification status, server memberships, Nitro subscriptions, billing details, and creation dates. Features include both sequential and turbo (parallel) processing modes, proxy support with auto-rotation, categorized results in organized output files, and a user-friendly interface with color-coded output and progress tracking.
 
